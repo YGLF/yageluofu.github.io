@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://yglf.github.io/yageluofu.github.io</id>
+    <title>YGLF</title>
+    <updated>2024-01-10T02:49:11.918Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://yglf.github.io/yageluofu.github.io"/>
+    <link rel="self" href="https://yglf.github.io/yageluofu.github.io/atom.xml"/>
+    <subtitle>如果你专注于过去，你将永远看不到未来！</subtitle>
+    <logo>https://yglf.github.io/yageluofu.github.io/images/avatar.png</logo>
+    <icon>https://yglf.github.io/yageluofu.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, YGLF</rights>
+    <entry>
+        <title type="html"><![CDATA[SQL注入原理学习(一)]]></title>
+        <id>https://yglf.github.io/yageluofu.github.io/SQL注入原理学习(一)/</id>
+        <link href="https://yglf.github.io/yageluofu.github.io/SQL注入原理学习(一)/">
+        </link>
+        <updated>2024-01-08T14:59:46.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Access数据库注入]]></title>
+        <id>https://yglf.github.io/yageluofu.github.io/Access数据库注入/</id>
+        <link href="https://yglf.github.io/yageluofu.github.io/Access数据库注入/">
+        </link>
+        <updated>2024-01-08T14:59:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Sqli-labs]]></title>
+        <id>https://yglf.github.io/yageluofu.github.io/sqli-labs/</id>
+        <link href="https://yglf.github.io/yageluofu.github.io/sqli-labs/">
+        </link>
+        <updated>2024-01-08T14:57:22.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ARP欺骗——初始版]]></title>
+        <id>https://yglf.github.io/yageluofu.github.io/ARP欺骗——初始版/</id>
+        <link href="https://yglf.github.io/yageluofu.github.io/ARP欺骗——初始版/">
+        </link>
+        <updated>2024-01-08T14:55:21.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[《Web安全攻防渗透测试实战指南》——学习笔记]]></title>
+        <id>https://yglf.github.io/yageluofu.github.io/《Web安全攻防渗透测试实战指南》——学习笔记/</id>
+        <link href="https://yglf.github.io/yageluofu.github.io/《Web安全攻防渗透测试实战指南》——学习笔记/">
+        </link>
+        <updated>2024-01-08T14:53:38.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2023个人年度总结]]></title>
+        <id>https://yglf.github.io/yageluofu.github.io/2023年度总结/</id>
+        <link href="https://yglf.github.io/yageluofu.github.io/2023年度总结/">
+        </link>
+        <updated>2024-01-01T01:58:40.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2022个人年度总结]]></title>
+        <id>https://yglf.github.io/yageluofu.github.io/2022个人年度总结/</id>
+        <link href="https://yglf.github.io/yageluofu.github.io/2022个人年度总结/">
+        </link>
+        <updated>2023-12-30T14:44:32.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[数据离机备份与恢复指导书]]></title>
+        <id>https://yglf.github.io/yageluofu.github.io/数据离机备份与恢复指导书/</id>
+        <link href="https://yglf.github.io/yageluofu.github.io/数据离机备份与恢复指导书/">
+        </link>
+        <updated>2023-05-01T14:35:03.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[BugkuCTF——wp(旧版)]]></title>
+        <id>https://yglf.github.io/yageluofu.github.io/BugkuCTF——wp(旧版)/</id>
+        <link href="https://yglf.github.io/yageluofu.github.io/BugkuCTF——wp(旧版)/">
+        </link>
+        <updated>2020-04-25T02:44:33.000Z</updated>
+    </entry>
+</feed>

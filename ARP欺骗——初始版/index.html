@@ -1,0 +1,256 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>ARP欺骗——初始版 | YGLF</title>
+
+<link rel="shortcut icon" href="https://yglf.github.io/yageluofu.github.io/favicon.ico?v=1704854943968">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://yglf.github.io/yageluofu.github.io/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/yageluofu.github.io/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            YGLF
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/YGLF" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/关于" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1704854943968" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    ARP欺骗——初始版
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2024-01-08 ·
+                    </time>
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/Web/" class="post-tags">
+                            # Web
+                        </a>
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/基础/" class="post-tags">
+                            # 基础
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="arp欺骗初始版">ARP欺骗——初始版</h2>
+<h3 id="介绍">介绍：</h3>
+<p>首先需要明白什么是ARP协议及作用？它在OSI模型中位于那一层中工作原理？</p>
+<p>ARP协议是地址解析协议，是根据IP地址获取物理地址的一个协议。主机发送信息时将包含目标IP地址的ARP请求广播到局域网络上的所有主机，并接收返回消息，以此确定目标的物理地址；收到返回消息后将该IP地址和物理地址存入本机ARP缓存中并保留一定时间，下次请求时直接查询ARP缓存以节约资源。</p>
+<p>ARP协议工作在OSI模型的第二层中，彼此不直接打交道。在通过以太网发送IP数据包时，需要先封装第三层（32位IP地址）、第二层（48位MAC地址）的包头，但由于发送时只知道目标IP地址，不知道其MAC地址，又不能跨第二、三层，所以需要使用地址解析协议。使用地址解析协议，可根据网络层IP数据包包头中的IP地址信息解析出目标硬件地址（MAC地址）信息，以保证通信的顺利进行。</p>
+<p>网关型ARP欺骗如下图所示：</p>
+<figure data-type="image" tabindex="1"><img src="C:/Users/caixinhui/Desktop/ARP%E6%AC%BA%E9%AA%97%E2%80%94%E2%80%94%E5%88%9D%E5%A7%8B%E7%89%88/assets/image-20220303222655732.png" alt="image-20220303222655732" loading="lazy"></figure>
+<h3 id="目的">目的：</h3>
+<p>了解网关型ARP欺骗的原理及危害并加以防护。</p>
+<h3 id="实验环境">实验环境：</h3>
+<p><strong>本次实验在局域网中实现。</strong></p>
+<table>
+<thead>
+<tr>
+<th>/</th>
+<th>IP</th>
+<th>MAC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>攻击者</td>
+<td>192.168.136.139</td>
+<td>00:0c:29:69:5e:68</td>
+</tr>
+<tr>
+<td>受害者</td>
+<td>192.168.136.144</td>
+<td>00-0C-29-84-C0-BD</td>
+</tr>
+<tr>
+<td>网关</td>
+<td>192.168.136.2</td>
+<td>00-50-56-ec-aa-59</td>
+</tr>
+</tbody>
+</table>
+<h3 id="实验步骤">实验步骤：</h3>
+<ol>
+<li>
+<p>首先确保攻击者与受害者在同一局域网下，网络互通。</p>
+</li>
+<li>
+<p>其次在kali中开启端口转发功能(起到中间人攻击的效果)。</p>
+<pre><code class="language-tex">echo 1 &gt;/proc/sys/net/ipv4/ip_forward
+</code></pre>
+<p>查看端口转发情况：</p>
+<pre><code class="language-tex">cat /proc/sys/net/ipv4/ip_forward
+</code></pre>
+<p>如果回显是1则表示转发功能开启成功，0则转发功能开启失败。</p>
+<p>关闭转发端口：</p>
+<pre><code class="language-tex">echo 0 &gt;/proc/sys/net/ipv4/ip_forward
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="C:/Users/caixinhui/Desktop/ARP%E6%AC%BA%E9%AA%97%E2%80%94%E2%80%94%E5%88%9D%E5%A7%8B%E7%89%88/assets/image-20220303204845780.png" alt="image-20220303204845780" loading="lazy"></figure>
+</li>
+<li>
+<p>探测局域网寻找受害主机，使用nmap工具进行ping探测。</p>
+<pre><code class="language-tex">nmap -sP 192.168.136.139/24
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="C:/Users/caixinhui/Desktop/ARP%E6%AC%BA%E9%AA%97%E2%80%94%E2%80%94%E5%88%9D%E5%A7%8B%E7%89%88/assets/image-20220303211301285.png" alt="image-20220303211301285" loading="lazy"></figure>
+<p>发现受害者IP与网关IP。</p>
+</li>
+<li>
+<p>在攻击前我们查看下受害者arp缓存表网关的情况如下图所示：</p>
+<figure data-type="image" tabindex="4"><img src="C:/Users/caixinhui/Desktop/ARP%E6%AC%BA%E9%AA%97%E2%80%94%E2%80%94%E5%88%9D%E5%A7%8B%E7%89%88/assets/image-20220303211843545.png" alt="image-20220303211843545" loading="lazy"></figure>
+<p>开始构造攻击语句，这里我们使用<code>arpspoof</code>工具进行网关欺骗。注：<a href="https:/www.cnblogs.com/student-programmer/p/6729156.html">arpsoof</a>详解。</p>
+<pre><code class="language-cmd">arpspoof -i 攻击者网卡 -t 受害者IP  网关IP
+
+arpspoof -i eth0 -t 192.168.136.144 192.168.136.2 
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="C:/Users/caixinhui/Desktop/ARP%E6%AC%BA%E9%AA%97%E2%80%94%E2%80%94%E5%88%9D%E5%A7%8B%E7%89%88/assets/image-20220303212853950.png" alt="image-20220303212853950" loading="lazy"></figure>
+<p>在受害主机查看arp缓存表发现网关的MAC地址与攻击者的MAC地址相同。攻击成功！</p>
+<figure data-type="image" tabindex="6"><img src="C:/Users/caixinhui/Desktop/ARP%E6%AC%BA%E9%AA%97%E2%80%94%E2%80%94%E5%88%9D%E5%A7%8B%E7%89%88/assets/image-20220303213017454.png" alt="image-20220303213017454" loading="lazy"></figure>
+</li>
+<li>
+<p>抓包验证，使用wershark抓包工具抓取攻击过程的数据包进行分析。</p>
+<figure data-type="image" tabindex="7"><img src="C:/Users/caixinhui/Desktop/ARP%E6%AC%BA%E9%AA%97%E2%80%94%E2%80%94%E5%88%9D%E5%A7%8B%E7%89%88/assets/image-20220303215525546.png" alt="image-20220303215525546" loading="lazy"></figure>
+</li>
+</ol>
+<h3 id="实验总结及防护">实验总结及防护：</h3>
+<ol>
+<li>本次实验通过虚拟环境模拟攻击者利用ARP缓存表毒化的原理实现网关型ARP欺骗的效果。</li>
+<li>防护手段如下：
+<ul>
+<li>静态绑定：将MAC地址与IP地址绑定在接口上。</li>
+<li>DHCP侦听技术：在交换机上开启DHCP侦听。</li>
+<li>ARP防火墙：使用ARP防火墙。</li>
+</ul>
+</li>
+</ol>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://yglf.github.io/yageluofu.github.io/《Web安全攻防渗透测试实战指南》——学习笔记/" class="post-title gt-a-link">
+                    《Web安全攻防渗透测试实战指南》——学习笔记
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">如果你专注于过去，你将永远看不到未来！</div>
+    <div class="social-container">
+        
+            
+                <a href="https://github.com/YGLF" target="_blank">
+                    <i class="fab fa-github gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/YGLF" target="_blank">YGLF</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://yglf.github.io/yageluofu.github.io/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

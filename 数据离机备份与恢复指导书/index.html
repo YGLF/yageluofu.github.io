@@ -1,0 +1,324 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>数据离机备份与恢复指导书 | YGLF</title>
+
+<link rel="shortcut icon" href="https://yglf.github.io/yageluofu.github.io/favicon.ico?v=1704854943968">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://yglf.github.io/yageluofu.github.io/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/yageluofu.github.io/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            YGLF
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/YGLF" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/关于" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1704854943968" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    数据离机备份与恢复指导书
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-05-01 ·
+                    </time>
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/等保/" class="post-tags">
+                            # 等保
+                        </a>
+                    
+                        <a href="https://yglf.github.io/yageluofu.github.io/基础/" class="post-tags">
+                            # 基础
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="数据离机备份与恢复指导书">数据离机备份与恢复指导书</h2>
+<h4 id="实验环境">实验环境</h4>
+<ul>
+<li>Windows server 2008 R2(服务器)
+<ul>
+<li>IP地址：192.168.136.175</li>
+<li>计算机名：XXX</li>
+</ul>
+</li>
+<li>Windows server 2008 R2(备份机)
+<ul>
+<li>IP地址：192.168.136.178</li>
+<li>计算机名：WIN-S5663KIF8BL</li>
+</ul>
+</li>
+</ul>
+<h4 id="实验目的">实验目的</h4>
+<ul>
+<li>将服务器中的数据定期备份到备份机实现离机备份操作。</li>
+</ul>
+<h4 id="实验说明">实验说明</h4>
+<ul>
+<li>本次实验为虚拟机环境下的备份操作与实际有许多不同点会在实验过程中讲明。</li>
+</ul>
+<h4 id="实验步骤如下">实验步骤如下</h4>
+<h5 id="备份">备份</h5>
+<ol>
+<li>
+<p>在<strong>服务器</strong>上新建一个备份账户,在<strong>备份机</strong>也新建一个备份账户;将这两个备份账户分别放置Backup备份组中。如下图所示：<img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119135809887.png" alt="image-20220119135809887" loading="lazy"></p>
+</li>
+<li>
+<p>备份机登录用户为Axjc管理员用户，创建共享文件夹<code>back</code>具体设置如下：</p>
+<ol>
+<li>
+<p>新建文件夹<code>back</code>/==》右击共享，共享用户选择<code>back</code>用户，权限给<code>读写</code>权限。删除其他多余用户包括超级管理员用户。</p>
+<figure data-type="image" tabindex="1"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119140510829.png" alt="image-20220119140510829" loading="lazy"></figure>
+</li>
+</ol>
+</li>
+<li>
+<p>备份机点击网络》网络和共享中心》更改高级共享设置》启用文件和打印机共享&amp;&amp;公用文件夹共享》如下图所示：</p>
+<figure data-type="image" tabindex="2"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119141043171.png" alt="image-20220119141043171" loading="lazy"></figure>
+</li>
+<li>
+<p>查看共享网络中共享文件夹是否存在并且本机是否有权访问，如下图所示：</p>
+<figure data-type="image" tabindex="3"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119141658796.png" alt="image-20220119141658796" loading="lazy"></figure>
+</li>
+<li>
+<p>在共享文件夹中创建一个测试文本目的是在服务器上登录<code>back</code>用户查看共享文件是否能够访问并修改。如下图所示：</p>
+<figure data-type="image" tabindex="4"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119142017224.png" alt="image-20220119142017224" loading="lazy"></figure>
+</li>
+<li>
+<p>用back用户登录服务器，尝试访问备份机中的共享文件夹。如下图所示：</p>
+<figure data-type="image" tabindex="5"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119142422830.png" alt="image-20220119142422830" loading="lazy"></figure>
+</li>
+<li>
+<p>到这一步共享文件夹成功创建。</p>
+</li>
+<li>
+<p>用<code>Axjc</code>用户登录服务器，打开服务器管理器》右键功能》添加功能》功能选项如下图所示</p>
+<figure data-type="image" tabindex="6"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119142751725.png" alt="image-20220119142751725" loading="lazy"></figure>
+</li>
+<li>
+<p>安装》安装完成》在菜单栏中的管理工具》backup。到这里备份工具安装成功。</p>
+<figure data-type="image" tabindex="7"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119142922440.png" alt="image-20220119142922440" loading="lazy"></figure>
+</li>
+<li>
+<p>打开备份服务选择备份策略，本次选择备份计划，如下图所示：</p>
+<figure data-type="image" tabindex="8"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119143209020.png" alt="image-20220119143209020" loading="lazy"></figure>
+</li>
+<li>
+<p>下一步自定义备份如下图所示：</p>
+<figure data-type="image" tabindex="9"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119143302751.png" alt="image-20220119143302751" loading="lazy"></figure>
+</li>
+<li>
+<p>下一步选择需要备份的对象添加项》C盘。如下图所示：</p>
+<figure data-type="image" tabindex="10"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119143345942.png" alt="image-20220119143345942" loading="lazy"></figure>
+</li>
+<li>
+<p>下一步选择每日多次备份如下图所示：</p>
+<figure data-type="image" tabindex="11"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119143612143.png" alt="image-20220119143612143" loading="lazy"></figure>
+</li>
+<li>
+<p>下一步选择备份到共享网络文件夹如下图所示：</p>
+<figure data-type="image" tabindex="12"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119143654691.png" alt="image-20220119143654691" loading="lazy"></figure>
+</li>
+<li>
+<p>下一步填写备份机共享文件夹位置如下图所示：</p>
+<figure data-type="image" tabindex="13"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119143820535.png" alt="image-20220119143820535" loading="lazy"></figure>
+</li>
+<li>
+<p>下一步输入账号口令如下图所示：</p>
+<figure data-type="image" tabindex="14"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119143906033.png" alt="image-20220119143906033" loading="lazy"></figure>
+</li>
+<li>
+<p>下一步到这里备份策略就完成了如下图所示：</p>
+<figure data-type="image" tabindex="15"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119143951043.png" alt="image-20220119143951043" loading="lazy"></figure>
+</li>
+<li>
+<p>执行备份计划，如下图所示：</p>
+<figure data-type="image" tabindex="16"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119144100805.png" alt="image-20220119144100805" loading="lazy"></figure>
+</li>
+<li>
+<p>备份成功到备份机查看备份内容。如下图所示：</p>
+<figure data-type="image" tabindex="17"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119145458161.png" alt="image-20220119145458161" loading="lazy"></figure>
+</li>
+</ol>
+<h5 id="恢复">恢复</h5>
+<ol>
+<li>
+<p>点击恢复，如图所示：<img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119145737398.png" alt="image-20220119145737398" loading="lazy"></p>
+</li>
+<li>
+<p>选择在其他位置存储，我们的备份是离机备份所以是存储在其他位置的。如下图所示：</p>
+<figure data-type="image" tabindex="18"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119145914014.png" alt="image-20220119145914014" loading="lazy"></figure>
+</li>
+<li>
+<p>下一步选择远程共享文件夹，如下如所示：</p>
+<figure data-type="image" tabindex="19"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119150002227.png" alt="image-20220119150002227" loading="lazy"></figure>
+</li>
+<li>
+<p>下一步填写我们共享文件夹的位置，如下图所示：</p>
+<figure data-type="image" tabindex="20"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119150134203.png" alt="image-20220119150134203" loading="lazy"></figure>
+</li>
+<li>
+<p>下一步选择需要恢复到的节点，如下图所示：</p>
+<figure data-type="image" tabindex="21"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119150230655.png" alt="image-20220119150230655" loading="lazy"></figure>
+</li>
+<li>
+<p>下一步选择需要恢复的文件类型，这里我们选择文件和文件夹，如下图所示：</p>
+<figure data-type="image" tabindex="22"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119150558116.png" alt="image-20220119150558116" loading="lazy"></figure>
+</li>
+<li>
+<p>下一步选择误删除的文件进行恢复，如下图所示：</p>
+<figure data-type="image" tabindex="23"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119151718099.png" alt="image-20220119151718099" loading="lazy"></figure>
+</li>
+<li>
+<p>下一步选择存放位置与恢复策略，如下图所示：</p>
+<figure data-type="image" tabindex="24"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119151834615.png" alt="image-20220119151834615" loading="lazy"></figure>
+</li>
+<li>
+<p>下一步恢复即可，如下图所示：</p>
+<figure data-type="image" tabindex="25"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119151911636.png" alt="image-20220119151911636" loading="lazy"></figure>
+</li>
+<li>
+<p>完成恢复，如图所示：<img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119151942555.png" alt="image-20220119151942555" loading="lazy"></p>
+<figure data-type="image" tabindex="26"><img src="C:/Users/caixinhui/Desktop/%E6%95%B0%E6%8D%AE%E7%A6%BB%E6%9C%BA%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AF%BC%E4%B9%A6/assets/image-20220119152016885.png" alt="image-20220119152016885" loading="lazy"></figure>
+</li>
+<li>
+<p>到这里恢复的操作也成功完成。</p>
+</li>
+</ol>
+<h3 id="总结">总结</h3>
+<ol>
+<li>在虚拟机环境中创建共享文件夹，另外一个虚拟机访问不通。原因是两台虚拟机是由一台虚拟机克隆而来的主机名会是一样的，所以当它在访问共享文件夹时实际是在访问自己电脑中的这个文件夹而这个文件夹在本机中不存在，因此才会报错。</li>
+<li>还有就是用户权限问题，需要在策略与用户组中进行设置。这样是为了更好的实现权限最小化、权限分离。</li>
+<li>在恢复的操作中需要指定文件恢复。</li>
+</ol>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://yglf.github.io/yageluofu.github.io/BugkuCTF——wp(旧版)/" class="post-title gt-a-link">
+                    BugkuCTF——wp(旧版)
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">如果你专注于过去，你将永远看不到未来！</div>
+    <div class="social-container">
+        
+            
+                <a href="https://github.com/YGLF" target="_blank">
+                    <i class="fab fa-github gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/YGLF" target="_blank">YGLF</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://yglf.github.io/yageluofu.github.io/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
